@@ -16,23 +16,9 @@
         "type": "github"
       }
     },
-    "programs-sqlite": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-Oj+bAw3LCXTvhZacN/VwNJ3510+4q/NO2G/FquC+9Cs=",
-        "path": "programs.sqlite",
-        "type": "path"
-      },
-      "original": {
-        "path": "programs.sqlite",
-        "type": "path"
-      }
-    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
-        "programs-sqlite": "programs-sqlite"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
