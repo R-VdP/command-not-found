@@ -1,6 +1,7 @@
 name: Sync programs.sqlite
 
 on:
+  workflow_dispatch:
   schedule:
     # Run at 3am daily
     - cron: '0 3 * * *'
