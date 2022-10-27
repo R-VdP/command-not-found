@@ -1,0 +1,32 @@
+name: Sync programs.sqlite
+
+on:
+  schedule:
+    # Run at 3am daily
+    - cron: '0 3 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: pull-nixexprs
+        run: >-
+          curl -L https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz | \
+          tar -xJ --wildcards --no-anchored programs.sqlite --to-stdout \
+          > programs.sqlite
+
+      - name: push results
+        run: |-
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add programs.sqlite
+          git commit \
+            --message "Update programs.sqlite from commit ${{ github.sha }}" \
+            || true
+          git push
+
