@@ -17,8 +17,8 @@ jobs:
 
       - name: pull-nixexprs
         run: >-
-          curl -L https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz | \
-          tar -xJ --wildcards --no-anchored programs.sqlite --to-stdout \
+          curl -L https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz |
+          tar -xJ --wildcards --no-anchored programs.sqlite --to-stdout
           > programs.sqlite
 
       - name: push results
