@@ -27,7 +27,7 @@ jobs:
           git config user.email github-actions@github.com
           git add programs.sqlite
           git commit \
-            --message "Update programs.sqlite from commit ${{ github.sha }}" \
+            --message "Update programs.sqlite." \
             || true
           git push
 
